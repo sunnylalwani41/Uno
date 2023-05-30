@@ -22,8 +22,14 @@ public class Main {
 					break;
 				}
 			}
+			i++;
 		}
 		game.startTheGame(players);
+		
+		while(true) {
+			if(game.playCard(game))
+				break;
+		}
 		
 	}
 }

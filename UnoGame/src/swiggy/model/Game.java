@@ -51,21 +51,62 @@ public class Game {
 	
 	public int nextTurn() {
 		currentPlayerIndex++;
-		if(currentPlayerIndex==players.size())
-			return 0;
+		
+		if(currentPlayerIndex==players.size()) {
+			currentPlayerIndex=0;
+		}
 		return currentPlayerIndex;
 	}
 	
 	
-	public boolean playCard(Card card) {
-		if(currentCard==null || isCardValid(card)) {
-			currentCard=card;
-			getCurrentPlayer().drawCard(card);
-			return true;
+	public boolean playCard(Game game) {
+		if(findCard()) {
+			
+			getCurrentPlayer().drawCard(getCurrentCard());
+			System.out.println("Player: "+getCurrentPlayer());
+			System.out.println("Current Card is: "+getCurrentCard());
+			System.out.println("============================");
+			if(declareWinner()!= null) {
+				System.out.println("================**********================");
+				System.out.println();
+				System.out.println("Winner : "+getCurrentPlayer());
+				System.out.println();
+				System.out.println("================**********================");
+				return true;
+			}
+			getCurrentPlayer().playCard(game);
+			
 		}
+		else {
+			getCurrentPlayer().addCard(deck.drawCard());
+			
+		}
+		nextTurn();
 		return false;
 		
 	}
+	
+	public boolean findCard() {
+		List<Card> list= getCurrentPlayer().getHands();
+
+		if(currentCard==null) {
+			setCurrentCard(list.get(getCardIndex()));
+			return true;
+		}
+		
+		Card card =null;
+		for(Card c: list) {
+			if(isCardValid(c)) {
+				card= c;
+			}
+		}
+		if(card!=null) {
+			setCurrentCard(card);
+			return true;
+		}
+		return false;
+	}
+	
 	
 	public int numberOfCardDistribute() {
 		if(players.size()<=2) {
@@ -74,8 +115,12 @@ public class Game {
 		return 5;
 	}
 	
+	public int getCardIndex() {
+		return (int)Math.floor((Math.random()*getCurrentPlayer().getHands().size()));
+	}
+	
 	public int determineDealer() {
-		return (int) (Math.random()*players.size());
+		return (int) Math.floor((Math.random()*players.size()));
 	}
 	
 	public boolean isCardValid(Card card) {
@@ -91,6 +136,7 @@ public class Game {
 
 	
 	public Player getCurrentPlayer() {
+		
 		return players.get(currentPlayerIndex);
 	}
 	

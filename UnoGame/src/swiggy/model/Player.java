@@ -32,33 +32,24 @@ public class Player {
 	
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", hands=" + hands + "]";
+		return "Player [id=" + id + ", name=" + name + "]";
 	}
 	
 	public void addCard(Card card) {
 		hands.add(card);
 	}
 	
-//	public boolean playCard(Game game, Card currentCard) {
-//		Card card=null;
-//		for(Card c: hands) {
-//			if(hasCardValid(currentCard, c)) {
-//				card=c;
-//				break;
-//			}
-//		}
-//		if(card!=null) {
-//			drawCard(card);
-//			game.setCurrentCard(card);
-//			if(currentCard.isSpecialCard()) {
-//				currentCard.performAction(game);;
-//			}
-//			game.nextTurn();
-//			return true;
-//		}
-//		
-//		return false;
-//	}
+	public boolean playCard(Game game) {
+		
+		if(game.getCurrentCard().isSpecialCard()) {
+			game.getCurrentCard().performAction(game);;
+			return true;
+		}
+			
+			
+		
+		return false;
+	}
 	
 	public boolean hasCardValid(Card currentCard, Card card) {
 		return currentCard.getColor().equals(card.getColor()) || currentCard.getValue().equals(card.getValue()); 
