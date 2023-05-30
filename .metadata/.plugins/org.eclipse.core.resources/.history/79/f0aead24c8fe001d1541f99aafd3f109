@@ -1,7 +1,0 @@
-package swiggy.model;
-
-public class Card {
-	private String color;
-	private String value;
-	
-}
