@@ -1,0 +1,12 @@
+package swiggy.model;
+
+import java.util.Arrays;
+import java.util.List;
+
+public enum CardColor {
+	RED,
+	YELLOW,
+	GREEN, BLUE;
+	public static final List<String> COLORS= Arrays.asList("Red", "Green", "Blue", "Yellow");
+}
+

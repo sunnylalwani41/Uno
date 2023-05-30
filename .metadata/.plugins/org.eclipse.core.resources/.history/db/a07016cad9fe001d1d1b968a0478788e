@@ -1,0 +1,22 @@
+package swiggy.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Deck {
+	private List<Card> cards;
+	
+	public Deck() {
+		cards=new ArrayList<>();
+		initializeCard();
+		shuffleCard();
+	}
+	public void initializeCard() {
+		for(String color: CardColor.COLORS) {
+			cards.add(new Card())
+		}
+	}
+	public void shuffleCard() {
+		
+	}
+}

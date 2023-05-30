@@ -1,0 +1,5 @@
+package swiggy.model;
+
+public class Player {
+
+}
