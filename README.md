@@ -5,7 +5,7 @@
 <div align=center>
 
 ![Uno](https://github.com/sunnylalwani41/Automation_Auction_Management_System/assets/103615858/42f22a8f-339c-4b8b-9697-d50bb227a112)
-
+</div>
 
 This Uno game is a console base individual Swiggy`s assessment. This game can able to manage the player detail with its hand card. This game is our assessment during the Masai placement curriculum.
 
