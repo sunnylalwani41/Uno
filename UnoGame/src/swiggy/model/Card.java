@@ -72,7 +72,7 @@ public class Card {
 				game.getCurrentPlayer().addCard(game.drawCard());
 				break;
 			}
-			case "special wild card" :{
+			case "wild draw four" :{
 				game.nextTurn();
 				game.getCurrentPlayer().addCard(game.drawCard());
 				game.getCurrentPlayer().addCard(game.drawCard());
