@@ -20,6 +20,9 @@ public class Deck {
 				cards.add(new Card(color, String.valueOf(i)));
 				cards.add(new Card(color, String.valueOf(i)));
 			}
+			cards.add(new Card(color, "1"));
+			cards.add(new Card(color, "2"));
+			cards.add(new Card(color, "3"));
 			cards.add(new Card(color, "skip"));
 			cards.add(new Card(color, "reverse"));
 			cards.add(new Card(color, "draw two"));
